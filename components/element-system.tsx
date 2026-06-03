@@ -1,23 +1,25 @@
 import { SectionHeading } from "@/components/section-heading"
 import {
   Footprints,
+  Bike,
   Eye,
-  Droplets,
   TreePine,
+  Droplets,
   Construction,
+  Info,
   Map,
   Compass,
   Camera,
 } from "lucide-react"
-import { WalkIcon, BikeIcon, ViewIcon } from "@/components/pictograms"
-import type { SVGProps } from "react"
 
-type PictoEntry = { Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element; label: string }
-
-const pictos: PictoEntry[] = [
-  { Icon: WalkIcon, label: "Пешеход" },
-  { Icon: BikeIcon, label: "Велосипед" },
-  { Icon: ViewIcon, label: "Обзор" },
+const pictos = [
+  { Icon: Footprints, label: "Прогулка" },
+  { Icon: Bike, label: "Велодорожка" },
+  { Icon: Eye, label: "Смотровая" },
+  { Icon: TreePine, label: "Зона отдыха" },
+  { Icon: Droplets, label: "Родник" },
+  { Icon: Construction, label: "Мост" },
+  { Icon: Info, label: "Информация" },
 ]
 
 export function ElementSystem() {
@@ -35,13 +37,13 @@ export function ElementSystem() {
           <h3 className="font-display text-lg font-bold text-foreground">Пиктограммы</h3>
           <span className="text-xs text-muted-foreground">сетка 24×24, штрих 1.7</span>
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-3">
-          {pictos.map((picto) => (
-            <div key={picto.label} className="flex flex-col items-center gap-2 rounded-xl border border-border bg-background p-4">
+        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+          {pictos.map(({ Icon, label }) => (
+            <div key={label} className="flex flex-col items-center gap-2 rounded-xl border border-border bg-background p-4">
               <span className="flex size-14 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <picto.Icon width={28} height={28} />
+                <Icon className="size-7" />
               </span>
-              <span className="text-center text-xs font-medium text-muted-foreground">{picto.label}</span>
+              <span className="text-center text-xs font-medium text-muted-foreground">{label}</span>
             </div>
           ))}
         </div>
