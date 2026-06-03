@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/section-heading"
-import { TreePine, Signpost, Shapes } from "lucide-react"
+import { TreePine, Signpost, Shapes, Footprints, Bike, Eye, Droplets, Construction, Info } from "lucide-react"
 
 const palette = [
   { name: "Лесной", hex: "#1F3B2C", note: "Корпус знаков" },
