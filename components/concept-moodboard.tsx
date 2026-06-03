@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/section-heading"
+import { TreePine, Signpost, Shapes } from "lucide-react"
 
 const palette = [
   { name: "Лесной", hex: "#1F3B2C", note: "Корпус знаков" },
@@ -9,9 +10,9 @@ const palette = [
 ]
 
 const mood = [
-  { src: "/park/mood-path.png", alt: "Солнечная лесная тропа — характер среды" },
-  { src: "/park/mood-materials.png", alt: "Указатель из тёмно-зелёной стали с деревянной вставкой" },
-  { src: "/park/mood-pictograms.png", alt: "Набор минималистичных пиктограмм парка" },
+  { src: "/park/mood-path.png", alt: "Солнечная лесная тропа — характер среды", Icon: TreePine },
+  { src: "/park/mood-materials.png", alt: "Указатель из тёмно-зелёной стали с деревянной вставкой", Icon: Signpost },
+  { src: "/park/mood-pictograms.png", alt: "Набор минималистичных пиктограмм парка", Icon: Shapes },
 ]
 
 export function ConceptMoodboard() {
@@ -27,8 +28,16 @@ export function ConceptMoodboard() {
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {mood.map((m) => (
             <figure key={m.src} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <img src={m.src || "/placeholder.svg"} alt={m.alt} className="aspect-[4/3] w-full object-cover" />
-              <figcaption className="px-4 py-3 text-sm text-muted-foreground">{m.alt}</figcaption>
+              <div className="relative">
+                <img src={m.src || "/placeholder.svg"} alt={m.alt} className="aspect-[4/3] w-full object-cover" />
+                <div className="absolute top-3 right-3 flex size-10 items-center justify-center rounded-full bg-[#1F3B2C]/90 shadow-lg backdrop-blur">
+                  <m.Icon className="size-5 text-[#6FAE57]" />
+                </div>
+              </div>
+              <figcaption className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground">
+                <m.Icon className="size-4 shrink-0 text-primary" />
+                {m.alt}
+              </figcaption>
             </figure>
           ))}
         </div>
