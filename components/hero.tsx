@@ -5,8 +5,8 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/park/enhanced.png"
-          alt="Лесопарк с наложенной системой навигации: пилон-указатель, маркер моста и напольная графика"
+          src="/park/bridge-real.png"
+          alt="Пешеходный мост через реку в лесопарке — объект практической работы"
           className="size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/45 to-primary/30" />
@@ -23,19 +23,17 @@ export function Hero() {
         </div>
 
         <h1 className="mt-5 max-w-3xl text-balance font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
-          Визуальные коммуникации в городском пространстве
+          Проектирование системы визуальных коммуникаций для городского лесопарка
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-primary-foreground/85 md:text-lg">
-          Проект целостной системы навигации для городского лесопарка. Среда рассмотрена как
-          коммуникативная система: от считывания на ходу до снижения визуального шума и
-          формирования образа места.
+          Практическое задание по проектированию единой системы навигации и информирования. Исследование локации, анализ потребностей аудитории, разработка визуального языка и испытание в реальной среде. Результат — конструктор из пиктограмм, носителей и цветовой палитры, который гармонично интегрируется в природное пространство и решает практические задачи ориентации без визуального шума.
         </p>
 
         <dl className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
           {[
-            { icon: MapPin, k: "Локация", v: "Городской лесопарк, пешеходный мост" },
-            { icon: Eye, k: "Подход", v: "Визуальная экология, минимум шума" },
-            { icon: Compass, k: "Результат", v: "Единая система знаков и пиктограмм" },
+            { icon: MapPin, k: "Объект", v: "Городской лесопарк с пешеходным мостом" },
+            { icon: Eye, k: "Метод", v: "Системный анализ, дизайн-исследование" },
+            { icon: Compass, k: "Результат", v: "Конструктор пиктограмм, тотемов и маркеров" },
           ].map((s) => (
             <div
               key={s.k}
