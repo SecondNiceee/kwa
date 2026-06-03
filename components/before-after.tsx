@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/section-heading"
-import { Footprints, Construction, Info, ArrowLeft, ArrowRight, Coffee, LogOut } from "lucide-react"
+import { Footprints, Construction, Info, ArrowUp, ArrowRight, Coffee, LogOut } from "lucide-react"
 
 export function BeforeAfter() {
   return (
@@ -55,11 +55,11 @@ export function BeforeAfter() {
           </div>
         </div>
 
-        {/* Direction: coffee — to the left, across the bridge */}
-        <div className="pointer-events-none absolute left-1/2 top-[72%] -translate-x-1/2">
+        {/* Direction: coffee — points up to the bridge */}
+        <div className="pointer-events-none absolute left-[34%] top-[70%] -translate-x-1/2">
           <div className="flex items-center overflow-hidden rounded-lg shadow-lg ring-1 ring-black/10">
             <div className="flex items-center justify-center gap-1 px-2 py-1.5 md:px-2.5 md:py-2" style={{ background: "#6B4A2B" }}>
-              <ArrowLeft className="size-4 text-[#F5F1E6] md:size-5" />
+              <ArrowUp className="size-4 text-[#F5F1E6] md:size-5" />
               <Coffee className="size-4 text-[#F5F1E6] md:size-5" />
             </div>
             <div className="bg-[#F5F1E6] px-2 py-1.5 md:px-2.5 md:py-2">
