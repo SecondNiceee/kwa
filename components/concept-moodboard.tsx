@@ -46,15 +46,7 @@ export function ConceptMoodboard() {
                 )}
               </div>
               <figcaption className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground">
-                {"icons" in m ? (
-                  <div className="flex gap-1">
-                    {m.icons.map((Icon, i) => (
-                      <Icon key={i} width={16} height={16} className="shrink-0 text-primary" />
-                    ))}
-                  </div>
-                ) : (
-                  <m.Icon className="size-4 shrink-0 text-primary" />
-                )}
+                {"Icon" in m && <m.Icon className="size-4 shrink-0 text-primary" />}
                 {m.alt}
               </figcaption>
             </figure>
