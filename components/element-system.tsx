@@ -11,15 +11,24 @@ import {
   Compass,
   Camera,
 } from "lucide-react"
+import { WalkIcon, BikeIcon, ViewIcon } from "@/components/pictograms"
+import type { SVGProps } from "react"
 
-const pictos = [
-  { Icon: Footprints, label: "Прогулка" },
-  { Icon: Bike, label: "Велодорожка" },
-  { Icon: Eye, label: "Смотровая" },
-  { Icon: TreePine, label: "Зона отдыха" },
-  { Icon: Droplets, label: "Родник" },
-  { Icon: Construction, label: "Мост" },
-  { Icon: Info, label: "Информация" },
+type PictoEntry =
+  | { type: "lucide"; Icon: React.ComponentType<{ className?: string }>; label: string }
+  | { type: "custom"; Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element; label: string }
+
+const pictos: PictoEntry[] = [
+  { type: "lucide", Icon: Footprints, label: "Прогулка" },
+  { type: "lucide", Icon: Bike, label: "Велодорожка" },
+  { type: "lucide", Icon: Eye, label: "Смотровая" },
+  { type: "lucide", Icon: TreePine, label: "Зона отдыха" },
+  { type: "lucide", Icon: Droplets, label: "Родник" },
+  { type: "lucide", Icon: Construction, label: "Мост" },
+  { type: "lucide", Icon: Info, label: "Информация" },
+  { type: "custom", Icon: WalkIcon, label: "Пешеход" },
+  { type: "custom", Icon: BikeIcon, label: "Велосипед" },
+  { type: "custom", Icon: ViewIcon, label: "Обзор" },
 ]
 
 export function ElementSystem() {
@@ -37,13 +46,17 @@ export function ElementSystem() {
           <h3 className="font-display text-lg font-bold text-foreground">Пиктограммы</h3>
           <span className="text-xs text-muted-foreground">сетка 24×24, штрих 1.7</span>
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-          {pictos.map(({ Icon, label }) => (
-            <div key={label} className="flex flex-col items-center gap-2 rounded-xl border border-border bg-background p-4">
+        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-5">
+          {pictos.map((picto) => (
+            <div key={picto.label} className="flex flex-col items-center gap-2 rounded-xl border border-border bg-background p-4">
               <span className="flex size-14 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <Icon className="size-7" />
+                {picto.type === "lucide" ? (
+                  <picto.Icon className="size-7" />
+                ) : (
+                  <picto.Icon width={28} height={28} />
+                )}
               </span>
-              <span className="text-center text-xs font-medium text-muted-foreground">{label}</span>
+              <span className="text-center text-xs font-medium text-muted-foreground">{picto.label}</span>
             </div>
           ))}
         </div>
