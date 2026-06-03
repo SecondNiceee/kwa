@@ -5,8 +5,8 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/park/enhanced.png"
-          alt="Лесопарк с наложенной системой навигации: пилон-указатель, маркер моста и напольная графика"
+          src="/park/bridge-real.png"
+          alt="Пешеходный мост через реку в лесопарке — объект практической работы"
           className="size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/45 to-primary/30" />

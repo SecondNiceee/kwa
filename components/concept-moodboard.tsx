@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/section-heading"
-import { TreePine, Signpost, Footprints, Bike, Eye, Droplets, Construction, Info } from "lucide-react"
+import { TreePine, Footprints, Bike, Eye, Droplets, Construction, Info } from "lucide-react"
 
 const palette = [
   { name: "Лесной", hex: "#1F3B2C", note: "Корпус знаков" },
@@ -11,7 +11,6 @@ const palette = [
 
 const mood = [
   { src: "/park/mood-path.png", alt: "Солнечная лесная тропа — характер среды", Icon: TreePine },
-  { src: "/park/mood-materials.png", alt: "Указатель из тёмно-зелёной стали с деревянной вставкой", Icon: Signpost },
   { alt: "Набор минималистичных пиктограмм парка", icons: [Footprints, Bike, Eye, TreePine, Droplets, Construction, Info] },
 ]
 
