@@ -1,22 +1,25 @@
 import { SectionHeading } from "@/components/section-heading"
 import {
-  WalkIcon,
-  BikeIcon,
-  ViewIcon,
-  PicnicIcon,
-  WaterIcon,
-  InfoIcon,
-  BridgeIcon,
-} from "@/components/pictograms"
+  Footprints,
+  Bike,
+  Eye,
+  TreePine,
+  Droplets,
+  Construction,
+  Info,
+  Map,
+  Compass,
+  Camera,
+} from "lucide-react"
 
 const pictos = [
-  { Icon: WalkIcon, label: "Прогулка" },
-  { Icon: BikeIcon, label: "Велодорожка" },
-  { Icon: ViewIcon, label: "Смотровая" },
-  { Icon: PicnicIcon, label: "Зона отдыха" },
-  { Icon: WaterIcon, label: "Родник" },
-  { Icon: BridgeIcon, label: "Мост" },
-  { Icon: InfoIcon, label: "Информация" },
+  { Icon: Footprints, label: "Прогулка" },
+  { Icon: Bike, label: "Велодорожка" },
+  { Icon: Eye, label: "Смотровая" },
+  { Icon: TreePine, label: "Зона отдыха" },
+  { Icon: Droplets, label: "Родник" },
+  { Icon: Construction, label: "Мост" },
+  { Icon: Info, label: "Информация" },
 ]
 
 export function ElementSystem() {
@@ -60,9 +63,9 @@ export function ElementSystem() {
               </div>
               <ul className="divide-y divide-white/10">
                 {[
-                  { Icon: WalkIcon, t: "Тропа", d: "→" },
-                  { Icon: ViewIcon, t: "Смотровая", d: "→" },
-                  { Icon: WaterIcon, t: "Родник", d: "↘" },
+                  { Icon: Footprints, t: "Тропа", d: "→" },
+                  { Icon: Eye, t: "Смотровая", d: "→" },
+                  { Icon: Droplets, t: "Родник", d: "↘" },
                 ].map(({ Icon, t, d }) => (
                   <li key={t} className="flex items-center gap-2 px-3 py-2.5">
                     <Icon className="size-5 text-[#F5F1E6]" />
@@ -82,7 +85,7 @@ export function ElementSystem() {
           <div className="mt-4 flex items-center justify-center rounded-xl bg-secondary/60 py-10">
             <div className="flex w-56 overflow-hidden rounded-lg shadow-lg">
               <div className="flex items-center justify-center px-3" style={{ background: "#3F7FB0" }}>
-                <BridgeIcon className="size-6 text-[#F5F1E6]" />
+                <Construction className="size-6 text-[#F5F1E6]" />
               </div>
               <div className="bg-[#F5F1E6] px-3 py-2.5">
                 <p className="text-sm font-bold text-[#1F3B2C]">Пешеходный мост</p>
@@ -92,20 +95,37 @@ export function ElementSystem() {
           </div>
         </div>
 
-        {/* Ground graphic + locator */}
+        {/* Information stand */}
         <div className="rounded-2xl border border-border bg-card p-6">
-          <h3 className="font-display text-base font-bold text-foreground">Напольная графика</h3>
-          <p className="mt-1 text-sm text-muted-foreground">Направляющая стрелка и метка «Вы здесь».</p>
-          <div className="mt-4 flex flex-col items-center gap-4 rounded-xl bg-secondary/60 py-8">
-            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 shadow" style={{ background: "#6FAE57" }}>
-              <span className="size-3 rounded-full border-2 border-[#F5F1E6]" />
-              <span className="text-sm font-bold text-[#F5F1E6]">Вы здесь</span>
-            </span>
-            <svg width="120" height="60" viewBox="0 0 360 200" aria-hidden="true">
-              <polygon points="40,180 150,40 210,40 120,180" fill="#6FAE57" />
-              <polygon points="150,40 230,40 320,180 220,180 300,70 200,70" fill="#E8DCC4" />
-              <polygon points="170,52 250,52 250,30 300,75 250,120 250,98 200,98" fill="#1F3B2C" />
-            </svg>
+          <h3 className="font-display text-base font-bold text-foreground">Информационный стенд</h3>
+          <p className="mt-1 text-sm text-muted-foreground">Карта маршрутов и правила парка.</p>
+          <div className="mt-4 flex items-center justify-center rounded-xl bg-secondary/60 py-6">
+            <div className="w-48 overflow-hidden rounded-lg shadow-lg" style={{ background: "#1F3B2C" }}>
+              <div className="flex items-center justify-between px-3 py-2" style={{ background: "#2C4A39" }}>
+                <div className="flex items-center gap-2">
+                  <Map className="size-4 text-[#6FAE57]" />
+                  <span className="text-xs font-bold text-[#F5F1E6]">Карта парка</span>
+                </div>
+                <Compass className="size-4 text-[#F5F1E6]/60" />
+              </div>
+              <div className="px-3 py-3">
+                <div className="mb-2 grid grid-cols-3 gap-1">
+                  {[Footprints, Eye, Droplets, TreePine, Camera, Construction].map((Icon, i) => (
+                    <div key={i} className="flex items-center justify-center rounded bg-[#2C4A39]/60 p-1.5">
+                      <Icon className="size-3.5 text-[#6FAE57]" />
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1.5">
+                  <div className="h-1.5 rounded-full bg-[#6FAE57]" />
+                  <div className="h-1.5 w-3/4 rounded-full bg-[#3F7FB0]" />
+                  <div className="h-1.5 w-1/2 rounded-full bg-[#E8DCC4]/40" />
+                </div>
+              </div>
+              <div className="border-t border-white/10 px-3 py-2">
+                <p className="text-center text-[10px] text-[#F5F1E6]/70">Время работы: 6:00–22:00</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
