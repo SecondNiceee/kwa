@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/section-heading"
-import { TreePine, Signpost, Shapes } from "lucide-react"
+import { TreePine, Signpost } from "lucide-react"
+import { WalkIcon, BikeIcon, ViewIcon } from "@/components/pictograms"
 
 const palette = [
   { name: "Лесной", hex: "#1F3B2C", note: "Корпус знаков" },
@@ -12,7 +13,7 @@ const palette = [
 const mood = [
   { src: "/park/mood-path.png", alt: "Солнечная лесная тропа — характер среды", Icon: TreePine },
   { src: "/park/mood-materials.png", alt: "Указатель из тёмно-зелёной стали с деревянной вставкой", Icon: Signpost },
-  { src: "/park/mood-pictograms.png", alt: "Набор минималистичных пиктограмм парка", Icon: Shapes },
+  { src: "/park/mood-pictograms.png", alt: "Набор минималистичных пиктограмм парка", icons: [WalkIcon, BikeIcon, ViewIcon] },
 ]
 
 export function ConceptMoodboard() {
@@ -30,12 +31,30 @@ export function ConceptMoodboard() {
             <figure key={m.src} className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="relative">
                 <img src={m.src || "/placeholder.svg"} alt={m.alt} className="aspect-[4/3] w-full object-cover" />
-                <div className="absolute top-3 right-3 flex size-10 items-center justify-center rounded-full bg-[#1F3B2C]/90 shadow-lg backdrop-blur">
-                  <m.Icon className="size-5 text-[#6FAE57]" />
-                </div>
+                {"icons" in m ? (
+                  <div className="absolute top-3 right-3 flex gap-1">
+                    {m.icons.map((Icon, i) => (
+                      <div key={i} className="flex size-10 items-center justify-center rounded-full bg-[#1F3B2C]/90 shadow-lg backdrop-blur">
+                        <Icon width={20} height={20} className="text-[#6FAE57]" />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="absolute top-3 right-3 flex size-10 items-center justify-center rounded-full bg-[#1F3B2C]/90 shadow-lg backdrop-blur">
+                    <m.Icon className="size-5 text-[#6FAE57]" />
+                  </div>
+                )}
               </div>
               <figcaption className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground">
-                <m.Icon className="size-4 shrink-0 text-primary" />
+                {"icons" in m ? (
+                  <div className="flex gap-1">
+                    {m.icons.map((Icon, i) => (
+                      <Icon key={i} width={16} height={16} className="shrink-0 text-primary" />
+                    ))}
+                  </div>
+                ) : (
+                  <m.Icon className="size-4 shrink-0 text-primary" />
+                )}
                 {m.alt}
               </figcaption>
             </figure>
