@@ -5,8 +5,8 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/park/bridge-real.png"
-          alt="Пешеходный мост через реку в лесопарке — объект практической работы"
+          src="/images/park-background.jpg"
+          alt="Городской парк с прогулочными дорожками — объект практической работы"
           className="size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/45 to-primary/30" />
@@ -31,7 +31,7 @@ export function Hero() {
 
         <dl className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
           {[
-            { icon: MapPin, k: "Объект", v: "Городской лесопарк с пешеходным мостом" },
+            { icon: MapPin, k: "Объект", v: "Городской парк с прогулочными дорожками" },
             { icon: Eye, k: "Метод", v: "Системный анализ, дизайн-исследование" },
             { icon: Compass, k: "Результат", v: "Конструктор пиктограмм, тотемов и маркеров" },
           ].map((s) => (
