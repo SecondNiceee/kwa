@@ -10,7 +10,7 @@ const palette = [
 ]
 
 const mood = [
-  { src: "/park/mood-path.png", alt: "Солнечная лесная тропа — характер среды", Icon: TreePine },
+  { src: "/images/park-background.jpg", alt: "Солнечный парк с мощёными дорожками — характер среды", Icon: TreePine },
   { alt: "Набор минималистичных пиктограмм парка", icons: [Footprints, Bike, Eye, TreePine, Droplets, Construction, Info] },
 ]
 
